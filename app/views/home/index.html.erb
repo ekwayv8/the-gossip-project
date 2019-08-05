@@ -17,7 +17,14 @@
 </nav>
 </header>
 <body>
-  <br><br>
-<p>BIENVENUE <%= @first_name %>! Ici c'est notre super site de potins, il est chouette, non ?</p>
+  <br><h3>BIENVENUE à toi!!!! Voici la liste de tous les gossips que nous avons en base à ce jour</h3><br>
+
+<% @gossips.each.with_index(1) do |gossip, index| %>
+        <p>	
+          <%= index %> -
+          <%= gossip.user.first_name %><br/>
+           "<%= gossip.title %>"<br/>
+        </p>
+      <% end %>
 </body>
 </html>
