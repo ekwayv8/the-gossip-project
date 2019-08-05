@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # Chemin d'accès vers la page statique de Contact
   get 'static_pages/contact', to: 'static_pages#contact'
 
+  # Chemin d'accès vers landingpage de Bienvenue
+  get 'welcome/:first_name', to: 'welcome#first_name'
+
+
 
 
 end
