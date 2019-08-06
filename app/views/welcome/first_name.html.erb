@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html>
-<header>
-  <!-- Ajout d'une NavBar bootstrap-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-  <a class="navbar-brand" href=<%=home_path%>>The Gossip Project</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link " href=<%=home_path%>>Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href=<%=team_path%>>Team </a>
-      <a class="nav-item nav-link active" href=<%=contact_path%>>Contact Us </a>
-    </div>
+<br/>
+<br/>
+<div class="jumbotron jumbotron-fluid" style="background-color:#cae3ed">
+  <div class="container">
+    <h1 class="display-5 text-center" style="color:#37444a" >BIENVENUE <%= @first_name %>! Ici c'est notre super site de potins, il est chouette, non ?</h1>
   </div>
-</nav>
-</header>
-<body>
-  <br><br>
-<p>BIENVENUE <%= @first_name %>! Ici c'est notre super site de potins, il est chouette, non ?</p>
-</body>
+</div>
+
 </html>
