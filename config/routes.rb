@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   # Chemin d'accès vers la landing page de Bienvenue personnalisée
   get 'welcome/:first_name', to: 'welcome#first_name'
 
+  #Chemin permettant d'afficher la page d'un gossip à l'aide de son id
+  get 'gossip/:id', to: 'gossip#display_gossip', as:'gossip'
+
 
 end

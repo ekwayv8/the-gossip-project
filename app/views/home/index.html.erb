@@ -23,7 +23,8 @@
         <p>	
           <%= index %> -
           <%= gossip.user.first_name %><br/>
-           "<%= gossip.title %>"<br/>
+           "<%=link_to "#{gossip.title}", gossip_path(gossip.id)%>"<br/>
+        
         </p>
       <% end %>
 </body>
