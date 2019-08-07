@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-    
+  
+   
   #Chemin vers la page d'acceuil qui retourne tous les gossips (nom de l'auteur et le titre de ces derniers)
   get '/home', to: 'home#index'
   root 'home#index'

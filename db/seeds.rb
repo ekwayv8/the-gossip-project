@@ -45,4 +45,3 @@ Like.destroy_all
 20.times do
   Like.create(gossip: Gossip.find(rand(Gossip.first.id..Gossip.last.id)), user: User.find(rand(User.first.id..User.last.id)))
 end
-© 2019 GitHub, Inc.
