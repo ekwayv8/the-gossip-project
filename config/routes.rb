@@ -18,6 +18,4 @@ Rails.application.routes.draw do
   get 'welcome/:first_name', to: 'welcome#first_name'
 
 
-
-
 end
