@@ -10,6 +10,7 @@
     Son auteur :<%= @gossip.user.first_name%><br><br>
     Le contenu du potin :<%= @gossip.content%><br><br>
     <a href=<%= gossip_index_path %>><button class='btn btn-primary'>Retour</button></a>
+    <a href=<%= show_user_path(@gossip.user.id) %>><button class='btn btn-primary'>info sur l'auteur</button></a>
     </p>
   </div>
 </div>
