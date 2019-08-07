@@ -10,7 +10,7 @@ require 'faker'
 
 City.destroy_all
 10.times do
-  City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
+  City.create(name: Faker::Address.city, zip_code: rand(10000..99999).round(-1))
 end
 
 User.destroy_all
@@ -25,7 +25,7 @@ end
 
 Gossip.destroy_all
 20.times do
-  Gossip.create(title: Faker::Hipster.sentence, content: Faker::Hipster.paragraph, user: User.find(rand(User.first.id..User.last.id)), tags: [Tag.find(rand(Tag.first.id..Tag.last.id))])
+  Gossip.create(title: Faker::Hipster.paragraph_by_chars(characters: 25, supplemental: false), content: Faker::Hipster.paragraph, user: User.find(rand(User.first.id..User.last.id)), tags: [Tag.find(rand(Tag.first.id..Tag.last.id))])
 end
 
 PrivateMessage.destroy_all
@@ -45,3 +45,4 @@ Like.destroy_all
 20.times do
   Like.create(gossip: Gossip.find(rand(Gossip.first.id..Gossip.last.id)), user: User.find(rand(User.first.id..User.last.id)))
 end
+© 2019 GitHub, Inc.
