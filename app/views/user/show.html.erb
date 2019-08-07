@@ -17,14 +17,14 @@
     </div>
 </div>
 
-<h3 class="display-5 text-center" style="color:#37444a">Voici la liste des gossips postés par <%= @user.first_name %></h3>
+<h3 class="display-5 text-center" style="color:#37444a ">Voici la liste des gossips postés par <%= @user.first_name %></h3><br>
 <% @user.gossips.each do |gossip| %>
-<div class="list-group">
-   <a href="<%= gossip_path(gossip.id)%>" class="list-group-item list-group-item-action">
+<div class="list-group" style="margin-left: 15px; margin-right: 15px" >
+   <a href="<%= gossip_path(gossip.id)%>" class="list-group-item list-group-item-action " style="background-color:#cae3ed">
         <div class="d-flex w-100 justify-content-between">
 
             <h5 class="mb-1"><%= gossip.title %></h5>
-            <small>n°<%= gossip.id %></small>
+            <small>Gossip n°<%= gossip.id %></small>
         </div>
           <p class="mb-1"><%=gossip.content%></p>
           <small><%= gossip.created_at %></small>
@@ -32,7 +32,7 @@
 </div>
 
   
-<br/><br/>
+<br/>
 <% end %>
 
   

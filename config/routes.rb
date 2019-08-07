@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :cities
+  resources :city
   resources :gossip
   
   #Chemin vers la page d'acceuil qui retourne tous les gossips (nom de l'auteur et le titre de ces derniers)
