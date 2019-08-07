@@ -11,7 +11,29 @@
      Ville de résidence : <%= @user.city.name %><br>
      Description : <%= @user.description %><br><br>
      <a href=<%= gossip_index_path %>><button class='btn btn-primary'>Retour</button></a>
+     <a href=<%= city_path(@user.city.id) %>><button class='btn btn-success'>info relative à la ville</button></a>
+   
     </p>
-  </div>
+    </div>
 </div>
+
+<h3 class="display-5 text-center" style="color:#37444a">Voici la liste des gossips postés par <%= @user.first_name %></h3>
+<% @user.gossips.each do |gossip| %>
+<div class="list-group">
+   <a href="<%= gossip_path(gossip.id)%>" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+
+            <h5 class="mb-1"><%= gossip.title %></h5>
+            <small>n°<%= gossip.id %></small>
+        </div>
+          <p class="mb-1"><%=gossip.content%></p>
+          <small><%= gossip.created_at %></small>
+    </a>   
+</div>
+
+  
+<br/><br/>
+<% end %>
+
+  
 </html>

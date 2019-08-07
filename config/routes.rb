@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-
-  resources :gossip, only: [:index, :new, :create, :show]
+  resources :cities
+  resources :gossip
   
   #Chemin vers la page d'acceuil qui retourne tous les gossips (nom de l'auteur et le titre de ces derniers)
   get '/', to: 'gossip#index'
