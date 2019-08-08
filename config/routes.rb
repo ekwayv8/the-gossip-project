@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'sessions/new'
+  get 'sessions/create'
   resources :city
   resources :gossip
   resources :user
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   get '/', to: 'gossip#index'
 
   #Chemin d'accès permettant d'afficher la page des auteurs
-  #get 'user/:user_id', to: 'user#show', as: 'show_user'
+  
   
   # Chemin d'accès vers la page statique de présentation de la team
   get '/team', to: 'static_pages#team'
