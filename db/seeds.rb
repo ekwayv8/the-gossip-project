@@ -15,7 +15,7 @@ end
 
 User.destroy_all
 10.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Hipster.sentence, email: Faker::Internet.email, age: rand(15..60), city: City.find(rand(City.first.id..City.last.id)))
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Hipster.sentence, email: Faker::Internet.email, age: rand(15..60), city: City.find(rand(City.first.id..City.last.id)), password: Faker::Internet.password(min_length: 8) )
 end
 
 Tag.destroy_all

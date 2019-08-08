@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 	
+  
+  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :age,
@@ -9,8 +11,10 @@ class User < ApplicationRecord
   validates :email,
     presence: true,
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-
+  validates :password, presence: true, length: { minimum: 8 }
+  
   belongs_to :city
+  has_secure_password
   has_many :gossips
   has_many :comments
   has_many :likes
