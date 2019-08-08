@@ -11,8 +11,8 @@
      Ville de résidence : <%= @user.city.name %><br>
      Description : <%= @user.description %><br><br>
      <a href=<%= gossip_index_path %>><button class='btn btn-primary'>Retour</button></a>
-     <a href=<%= city_path(@user.city.id) %>><button class='btn btn-success'>info relative à la ville</button></a>
-   
+     
+    <a href=<%= city_path(@user.city.id) %>><button class='btn btn-success'>info relative à la ville</button></a>
     </p>
     </div>
 </div>
