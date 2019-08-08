@@ -7,23 +7,29 @@
 <div class='row justify-content-center'>
       <div class='col-6'>
 
-      <h3> Veuillez renseigner votre email ainsi que votre mot de passe svp:</h3>
+      <h3 class="text-center"> Veuillez renseigner votre email ainsi que votre mot de passe svp:</h3>
 
+            <% if flash[:danger] != nil %>
+                  <div class='alert alert-danger mt-4'>
+                  <%= flash[:danger] %>
+                  </div>
+            <% end %>
+      
             <%= form_tag url_for(action: 'create'), method: "post" do %>
-
-
                   <div class='form-group'>
                         <%= label_tag 'Ton email' %>
-                        <%= text_area_tag 'email', nil, class: 'form-control'%>
+                        <%= text_field_tag 'email', nil, class: 'form-control' %>
                   </div>
-
-                   <div class='form-group'>
+                  <div class='form-group'>
                         <%= label_tag 'Ton mot de passe' %>
-                        <%= text_area_tag 'password', nil, class: 'form-control'%>
+                        <%= password_field_tag 'password', nil, class: 'form-control' %>
                   </div>
 
-
-                  <%= submit_tag "Connexion", class: 'btn btn-primary'%>
+                  <div class='form-group mt-5'>
+                    <%= submit_tag "Connexion", class: 'btn btn-primary' %>
+                    <a href=<%= new_user_path %>><button class='btn btn-outline-secondary ml-2'>Pas encore inscrit!</button></a>
+                  </div>
+            
             <% end %>
       </div>
 </div>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'sessions/new'
-  get 'sessions/create'
+  resources :sessions, only: [:new, :create, :destroy]
   resources :city
   resources :gossip
   resources :user

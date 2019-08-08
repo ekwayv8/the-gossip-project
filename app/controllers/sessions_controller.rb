@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
 		  # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
 		  if user && user.authenticate(password: params[:password])
-		    session[:user_id] = user.id
+		    log_in(user)
 		    # redirige vers la page d'acceuil avec un flash
 		    flash[:success] = "Vous êtes bien connecté à votre espace de commerage préféré !"
 	    	redirect_to gossip_index_path
@@ -18,9 +18,10 @@ class SessionsController < ApplicationController
 		    flash.now[:danger] = 'Combinaison email/password incorrecte!!!'
 		    render :new
 		  end
-	  end
+	end
 
 	def destroy
-
+	    session.delete(:user_id)
+	    redirect_to gossips_path
 	end
 end
