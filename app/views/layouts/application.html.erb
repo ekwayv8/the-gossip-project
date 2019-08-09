@@ -23,10 +23,23 @@
       <a class="nav-item nav-link " href=<%=gossip_index_path%>>Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href=<%=team_path%>>Team </a>
       <a class="nav-item nav-link " href=<%=contact_path%>>Contact Us </a>
-      <a class="nav-item nav-link active" href=<%=new_user_path%>>Sign Up </a>
-      <a class="nav-item nav-link active" href=<%=new_session_path%>>Login </a>
-    </div>
+            <% if current_user %>
+     <a href=<%= session_path(current_user) %> data-confirm= 'Êtes-vous sûr ?' data-method='DELETE'><button class="btn btn-danger" type="button">Se déconnecter</button></a>
+      <% else %>
+<!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Login/Sign Up
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href=<%= new_session_path %>>Login</a>
+    <a class="dropdown-item" href=<%= new_user_path %>>Sign Up</a>
+    
   </div>
+</div>
+      <% end %>
+    </div>
+</div>
 </nav>
 </header>
   <body>

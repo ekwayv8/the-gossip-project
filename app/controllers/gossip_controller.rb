@@ -31,7 +31,7 @@ class GossipController < ApplicationController
     @gossip_modify = @gossip
     update_params = params.permit(:title, :content)
     if @gossip.update(update_params)
-      redirect_to gossips_path, alert: 'Votre gossip a bien été sauvegardé'
+      redirect_to gossip_index_path, alert: 'Votre gossip a bien été sauvegardé'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class GossipController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to gossips_path, alert: 'Votre gossip a bien été supprimé'
+    redirect_to gossip_index_path, alert: 'Votre gossip a bien été supprimé'
   end
 
 

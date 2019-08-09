@@ -1,21 +1,31 @@
 class UserController < ApplicationController
 
-	def new
-		
-	end
+include UserHelper
 
-	def create
-		@user = User.new(first_name: params[:first_name], last_name: params[:last_name], description: params[:description] , email: params[:email], age: params[:age], city: City.find_by(city:params[:city].id), password: params[:password])
-		    if @user.save
-		      redirect_to gossip_index_path, alert: 'Votre profil a bien été créé'
-		    else
-		      render :new
-		    end
-	end
+#before_action :authenticate_user, only: [:show]
+
+ def show
+    @user = User.find(params[:id])
+  end
 
 
-	  def show
-	    @user = User.find(params[:id])
-	  end
+
+def new
+    @cities = City.all
+end
+
+  def create
+    @user = User.new(password: params[:password], password_confirmation: params[:password_confirm], city: City.find(params[:city]), first_name: params[:first_name], last_name: params[:last_name], age: set_age(params[:birthdate]), email: params[:email], description: params[:description])
+    if @user.save 
+      flash[:alert] = 'Vous pouvez maintenant vous connecter !'
+      redirect_to new_session_path
+    else
+      @cities = City.all
+      render :new
+    end
+  end
+
+
+ 
 
 end

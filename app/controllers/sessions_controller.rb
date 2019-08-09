@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
 	def create
 		  # cherche s'il existe un utilisateur en base avec l’e-mail
-		  user = User.find_by(email: params[:email])
+		  @user = User.find_by(email: params[:email])
 
 		  # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
-		  if user && user.authenticate(password: params[:password])
-		    log_in(user)
+		  if @user && @user.authenticate(password: params[:password])
+		    log_in(@user)
 		    # redirige vers la page d'acceuil avec un flash
 		    flash[:success] = "Vous êtes bien connecté à votre espace de commerage préféré !"
 	    	redirect_to gossip_index_path
@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
 
 	def destroy
 	    session.delete(:user_id)
-	    redirect_to gossips_path
+	    redirect_to gossip_index_path
 	end
 end
